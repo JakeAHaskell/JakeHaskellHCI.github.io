@@ -1,0 +1,300 @@
+<!doctype html>
+<script>
+  function R_editor(){
+
+      var edit = document.getElementById("R_edit")
+      var name = document.getElementById("Ruthanne")
+      var title = document.getElementById("R_food")
+      var tried = document.getElementById("R_tried")
+      var detail = document.getElementById("R_detail")
+
+      if(edit.innerText == "Edit") {
+          edit.innerText = "Save"
+          title.contentEditable = "true"
+          detail.contentEditable = "true"
+          tried.contentEditable = "true"
+      }
+      else if(edit.innerText == "Save") {
+          edit.innerText = "Edit"
+          title.contentEditable = "false"
+          detail.contentEditable = "false"
+          tried.contentEditable = "false"
+      }
+  }
+
+  function R_similar(){
+      var butn = document.getElementById("R_similar")
+
+      if(butn.innerText == "Similar Profiles"){
+          butn.innerText = "undo"
+          filterVegan();
+      }
+      else if(butn.innerText == "undo"){
+          butn.innerText ="Similar Profiles"
+          filterAll();
+      }
+  }
+
+  function Z_similar(){
+      var butn = document.getElementById("Z_similar")
+
+      if(butn.innerText == "Similar Profiles"){
+          butn.innerText = "undo"
+          filterAsian();
+      }
+      else if(butn.innerText == "undo"){
+          butn.innerText ="Similar Profiles"
+          filterAll();
+      }
+  }
+
+  function filterAll(){
+      document.getElementById("Ruth").style.visibility = "visible";
+      document.getElementById("Zach").style.visibility = "visible";
+      document.getElementById("Sam").style.visibility = "visible";
+      document.getElementById("Austin").style.visibility = "visible";
+      document.getElementById("Jake").style.visibility = "visible";
+      document.getElementById("Tim").style.visibility = "visible";
+      document.getElementById("Tom").style.visibility = "visible";
+      document.getElementById("Andrew").style.visibility = "visible";
+      document.getElementById("Corey").style.visibility = "visible";
+      document.getElementById("Jonny").style.visibility = "visible";
+      document.getElementById("Adam").style.visibility = "visible";
+      document.getElementById("Logan").style.visibility = "visible";
+  }
+  function filterVegan(){
+      document.getElementById("Ruth").style.visibility = "visible";
+      document.getElementById("Zach").style.visibility = "hidden";
+      document.getElementById("Sam").style.visibility = "hidden";
+      document.getElementById("Austin").style.visibility = "hidden";
+      document.getElementById("Jake").style.visibility = "hidden";
+      document.getElementById("Tim").style.visibility = "visible";
+      document.getElementById("Tom").style.visibility = "hidden";
+      document.getElementById("Andrew").style.visibility = "hidden";
+      document.getElementById("Corey").style.visibility = "hidden";
+      document.getElementById("Jonny").style.visibility = "hidden";
+      document.getElementById("Adam").style.visibility = "hidden";
+      document.getElementById("Logan").style.visibility = "visible";
+  }
+  function filterSpanish(){
+      document.getElementById("Ruth").style.visibility = "hidden";
+      document.getElementById("Zach").style.visibility = "hidden";
+      document.getElementById("Sam").style.visibility = "hidden";
+      document.getElementById("Austin").style.visibility = "visible";
+      document.getElementById("Jake").style.visibility = "hidden";
+      document.getElementById("Tim").style.visibility = "hidden";
+      document.getElementById("Tom").style.visibility = "hidden";
+      document.getElementById("Andrew").style.visibility = "hidden";
+      document.getElementById("Corey").style.visibility = "visible";
+      document.getElementById("Jonny").style.visibility = "hidden";
+      document.getElementById("Adam").style.visibility = "hidden";
+      document.getElementById("Logan").style.visibility = "hidden";
+  }
+  function filterAsian(){
+      document.getElementById("Ruth").style.visibility = "hidden";
+      document.getElementById("Zach").style.visibility = "visible";
+      document.getElementById("Sam").style.visibility = "hidden";
+      document.getElementById("Austin").style.visibility = "hidden";
+      document.getElementById("Jake").style.visibility = "hidden";
+      document.getElementById("Tim").style.visibility = "hidden";
+      document.getElementById("Tom").style.visibility = "hidden";
+      document.getElementById("Andrew").style.visibility = "visible";
+      document.getElementById("Corey").style.visibility = "hidden";
+      document.getElementById("Jonny").style.visibility = "hidden";
+      document.getElementById("Adam").style.visibility = "hidden";
+      document.getElementById("Logan").style.visibility = "hidden";
+  }
+</script>
+<head>
+  <title>Find food you like </title>
+  <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+  <meta charset = "utf-8">
+  <link rel = "shortcut icon" href = "/assets/favicon.ico">
+</head>
+  <style>
+    .profile{
+      font-family: sans-serif;
+      text-align: center;
+      max-width: 200px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      margin-right: 40px;
+      margin-top: 40px;
+      display: inline-block;
+    }
+
+    .profile__image{
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
+
+    .profile__name{
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .profile__title{
+      margin-bottom: 20px;
+    }
+
+    .profile__detail{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9em;
+    }
+    .edit__button{
+      color: blue;
+      text-align: center;
+      display: inline-block;
+      font_size: .6em;
+    }
+
+    .filter__button{
+      border: none;
+      outline: none;
+      padding: 6px 12px;
+      background-color: mediumspringgreen;
+      cursor: pointer;
+    }
+
+    .btn{
+      border: none;
+      outline: none;
+      padding: 12px 16px;
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #ddd;
+    }
+
+    .btn.active {
+      background-color: #666;
+      color: white;
+    }
+
+  </style>
+<body>
+<div id = "btnContainer">
+  <button class = "btn active" onclick = filterAll(); > Show All </button>
+  <button class = "btn" onclick = filterVegan(); > Vegan </button>
+  <button class = "btn" onclick = filterSpanish(); > Spanish </button>
+  <button class = "btn" onclick = filterAsian(); > Asian </button>
+</div>
+  <div class = "profile" id = "Ruth">
+    <img src = "img/Ruthanne.png" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name" id = "Ruthanne"> Ruthanne Martin </div>
+    <div class = "profile__title" id = "R_food"> Favorite Food: Vegan </div>
+    <div class = "profile__title" id = "R_tried"> Dishes tried: Falafels </div>
+    <div class = "profile__detail" id = "R_detail"> 8m Followers</div>
+    <button class = "edit__button" onclick = R_editor(); id = "R_edit"> Edit </button>
+    <button class = "filter__button" onclick = R_similar(); id = "R_similar"> Similar Profiles </button>
+  </div>
+  <div class = "profile" id = "Zach">
+    <img src = "img/common ostrich.jpg" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name"> Zach Martin </div>
+    <div class = "profile__title"> Favorite Food: Asian </div>
+    <div class = "profile__title"> Dishes tried: Lo Mein </div>
+    <div class = "profile__detail"> 1 follower </div>
+    <button class = "edit__button"> Edit </button>
+    <button class = "filter__button" onclick = Z_similar(); id = "Z_similar"> Similar Profiles </button>
+  </div>
+  <div class = "profile" id = "Sam" >
+    <img src = "img/v0caqchbtn741.jpg" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name"> Sam Phipps </div>
+    <div class = "profile__title"> Favorite Food: Vegetarian </div>
+    <div class = "profile__title"> Dishes tried: Black Bean Burger </div>
+    <div class = "profile__detail"> 10 followers </div>
+    <button class = "edit__button"> Edit </button>
+    <button class = "filter__button"> Similar Profiles </button>
+  </div>
+  <div class = "profile" id = "Austin">
+    <img src = "img/1-intro-photo-final.jpg" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name"> Austin Lawrence </div>
+    <div class = "profile__title"> Favorite Food: Spanish </div>
+    <div class = "profile__title"> Dishes tried: Pork and Lentils </div>
+    <div class = "profile__detail"> 8 followers </div>
+    <button class = "edit__button"> Edit </button>
+    <button class = "filter__button"> Similar Profiles </button>
+  </div>
+  <div class = "profile" id = "Jake">
+    <img src = "img/asdfe wqreadfdsa.jpg" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name"> Jake Haskell </div>
+    <div class = "profile__title"> Favorite Food: Italian </div>
+    <div class = "profile__title"> Dishes tried: Fettuccine Alfredo </div>
+    <div class = "profile__detail"> 12 followers </div>
+    <button class = "edit__button"> Edit </button>
+    <button class = "filter__button"> Similar Profiles </button>
+  </div>
+  <div class = "profile" id = "Tim">
+    <img src = "img/lego-star-wars-profile-1.jpg" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name"> Tim Scott </div>
+    <div class = "profile__title"> Favorite Food: Vegan </div>
+    <div class = "profile__title"> Dishes tried: Kale Salad </div>
+    <div class = "profile__detail"> 1 follower </div>
+    <button class = "edit__button"> Edit </button>
+    <button class = "filter__button"> Similar Profiles </button>
+  </div>
+  <div class = "profile" id = "Tom">
+    <img src = "img/ipanews_3b811685-d4b6-4d1d-8cd8-0f8f276424c4_1.jpg" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name"> Tom Rutherford </div>
+    <div class = "profile__title"> Favorite Food: American </div>
+    <div class = "profile__title"> Dishes tried: Cheeseburger </div>
+    <div class = "profile__detail"> 1 follower </div>
+    <button class = "edit__button"> Edit </button>
+    <button class = "filter__button"> Similar Profiles </button>
+  </div>
+  <div class = "profile" id = "Andrew">
+    <img src = "img/pexels-photo-220453.webp" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name"> Andrew Garfield </div>
+    <div class = "profile__title"> Favorite Food: Asian </div>
+    <div class = "profile__title"> Dishes tried: General Tso Chicken </div>
+    <div class = "profile__detail"> 100 followers </div>
+    <button class = "edit__button"> Edit </button>
+    <button class = "filter__button"> Similar Profiles </button>
+  </div>
+  <div class = "profile" id = "Corey">
+    <img src = "img/babyyoda_lols.jpg" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name"> Corey LaRosa </div>
+    <div class = "profile__title"> Favorite Food: Spanish </div>
+    <div class = "profile__title"> Dishes tried: Pork and Rice </div>
+    <div class = "profile__detail"> 16 followers </div>
+    <button class = "edit__button"> Edit </button>
+    <button class = "filter__button"> Similar Profiles </button>
+  </div>
+  <div class = "profile" id = "Jonny">
+    <img src = "img/EaUbspyVAAAIjr8.jpg" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name"> Jonny Scott </div>
+    <div class = "profile__title"> Favorite Food: Seafood </div>
+    <div class = "profile__title"> Dishes tried: Grouper Fingers </div>
+    <div class = "profile__detail"> 1 follower </div>
+    <button class = "edit__button"> Edit </button>
+    <button class = "filter__button"> Similar Profiles </button>
+  </div>
+  <div class = "profile" id = "Adam">
+    <img src = "img/profilefavourite-900x600.jpg" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name"> Adam LeMay </div>
+    <div class = "profile__title"> Favorite Food: Mexican </div>
+    <div class = "profile__title"> Dishes tried: Quesadilla </div>
+    <div class = "profile__detail"> 1 follower </div>
+    <button class = "edit__button"> Edit </button>
+    <button class = "filter__button"> Similar Profiles </button>
+  </div>
+  <div class = "profile" id = "Logan">
+    <img src = "img/linkedIN-profile-FB.jpg" alt = "Profile Image" class ="profile__image">
+    <div class = "profile__name"> Logan Schultz </div>
+    <div class = "profile__title"> Favorite Food: Vegan </div>
+    <div class = "profile__title"> Dishes tried: Sesame Cucumber Salad </div>
+    <div class = "profile__detail"> 1 follower </div>
+    <button class = "edit__button"> Edit </button>
+    <button class = "filter__button"> Similar Profiles </button>
+  </div>
+
+</body>
+
